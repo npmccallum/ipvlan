@@ -1,0 +1,20 @@
+[package]
+name = "ipvlan"
+version = "0.1.0"
+authors = ["Nathaniel McCallum <npmccallum@redhat.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+netlink-packet-route = "0.7"
+netlink-packet-core = "0.2"
+netlink-sys = "0.6"
+structopt = "0.3"
+caps = { git = "https://github.com/npmccallum/caps-rs", branch = "with" }
+libc = "0.2"
+
+[profile.release]
+codegen-units = 1
+opt-level = "s"
+lto = "fat"
